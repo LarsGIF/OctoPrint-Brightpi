@@ -1,6 +1,6 @@
 # OctoPrint-Brightpi
 
-**TODO:** Describe what your plugin does.
+This is a plugin to OctoPrint controlling a BrightPi camera light assembly from PiSupply.
 
 ## Setup
 
