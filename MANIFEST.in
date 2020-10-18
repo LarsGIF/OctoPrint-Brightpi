@@ -1,0 +1,4 @@
+include README.md
+recursive-include octoprint_brightpi/templates *
+recursive-include octoprint_brightpi/translations *
+recursive-include octoprint_brightpi/static *
