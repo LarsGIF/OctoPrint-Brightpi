@@ -5,7 +5,7 @@
  * License: AGPLv3
  */
 
-from brightpi import *
+//from brightpi import *
 
 $(function() {
     function BrightpiViewModel(parameters) {
@@ -15,32 +15,30 @@ $(function() {
         // self.loginStateViewModel = parameters[0];
         // self.settingsViewModel = parameters[1];
 
-        brightPi = BrightPi();
         self.dialog = undefined;
+        // brightPi = BrightPi();
 
         self.onStartup = function() {
             self.dialog = $("#plugin_brightpi_generated");
-            brightPi.reset()
+            // brightPi.reset()
         };
 
         self.showDialog = function(title, data) {
             if (self.dialog === undefined) return;
-        // TODO: Implement your plugin's view model here.
-
+            // TODO: Implement your plugin's view model here.
+		    self._logger.info("BrightPi dialog show")
         };
 
         self.lightOff = function() {
             // TODO: Implement lightOff here.
-            //    if (!self.enableReload()) return;
-            //    self.loadFile(self.loadedFilepath, self.loadedFileDate);
-            brightPi.set_led_on_off((1 ,3), OFF)
+            self._logger.info("BrightPi Light Off pressed!")
+            // brightPi.set_led_on_off((1 ,3), OFF)
         };
 
         self.lightOn = function() {
-                // TODO: Implement lightOn here.
-                // if (!self.enableReload()) return;
-                // self.loadFile(self.loadedFilepath, self.loadedFileDate);
-            brightPi.set_led_on_off((1 ,3), ON)
+            // TODO: Implement lightOn here.
+            self._logger.info("BrightPi Light On pressed!")
+            // brightPi.set_led_on_off((1 ,3), ON)
         }
     }
 

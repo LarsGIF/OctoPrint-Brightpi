@@ -1,0 +1,5 @@
+[console_scripts]
+bripy = brightpy:main
+bripy-ac = brightpy:ac
+bripy-battery = brightpy:battery
+
