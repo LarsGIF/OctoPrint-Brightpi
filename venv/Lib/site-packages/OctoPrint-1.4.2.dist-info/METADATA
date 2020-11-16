@@ -1,0 +1,254 @@
+Metadata-Version: 2.1
+Name: OctoPrint
+Version: 1.4.2
+Summary: The snappy web interface for your 3D printer
+Home-page: https://octoprint.org
+Author: Gina Häußge
+Author-email: gina@octoprint.org
+License: GNU Affero General Public License v3
+Project-URL: Community Forum, https://community.octoprint.org
+Project-URL: Bug Reports, https://github.com/foosel/OctoPrint/issues
+Project-URL: Source, https://github.com/foosel/OctoPrint
+Project-URL: Funding, https://donate.octoprint.org
+Keywords: 3dprinting 3dprinter 3d-printing 3d-printer octoprint
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Flask
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Education
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: Intended Audience :: Manufacturing
+Classifier: Intended Audience :: Other Audience
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: GNU Affero General Public License v3
+Classifier: Natural Language :: English
+Classifier: Natural Language :: German
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: JavaScript
+Classifier: Topic :: Printing
+Classifier: Topic :: System :: Monitoring
+Requires-Python: >=2.7.9, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*, !=3.5.*, <4
+Description-Content-Type: text/markdown
+Requires-Dist: OctoPrint-FirmwareCheck (>=2020.06.22)
+Requires-Dist: OctoPrint-FileCheck (>=2020.07.06)
+Requires-Dist: markupsafe (<2.0,>=1.1)
+Requires-Dist: tornado (==5.1.1)
+Requires-Dist: markdown (<3.2,>=3.1)
+Requires-Dist: rsa (==4.0)
+Requires-Dist: regex (!=2018.11.6)
+Requires-Dist: flask (<2,>=1.1.2)
+Requires-Dist: Jinja2 (<3,>=2.11.2)
+Requires-Dist: Flask-Login (<0.6,>=0.5)
+Requires-Dist: Flask-Babel (<2,>=1.0)
+Requires-Dist: Flask-Assets (<3,>=2.0)
+Requires-Dist: werkzeug (<2,>=1.0.1)
+Requires-Dist: itsdangerous (<2,>=1.1.0)
+Requires-Dist: cachelib (<1,>=0.1)
+Requires-Dist: PyYAML (<6,>=5.3.1)
+Requires-Dist: pyserial (<4,>=3.4)
+Requires-Dist: netaddr (<1,>=0.7.19)
+Requires-Dist: watchdog (<1,>=0.10.2)
+Requires-Dist: sarge (==0.1.5post0)
+Requires-Dist: netifaces (<1,>=0.10.9)
+Requires-Dist: pylru (<2,>=1.2)
+Requires-Dist: pkginfo (<2,>=1.5.0.1)
+Requires-Dist: requests (<3,>=2.23.0)
+Requires-Dist: semantic-version (<3,>=2.8.5)
+Requires-Dist: psutil (<6,>=5.7)
+Requires-Dist: Click (<8,>=7.1.2)
+Requires-Dist: feedparser (<6,>=5.2.1)
+Requires-Dist: future (<1,>=0.18.2)
+Requires-Dist: websocket-client (<1,>=0.57)
+Requires-Dist: wrapt (<2,>=1.12.1)
+Requires-Dist: emoji (<1,>=0.5.4)
+Requires-Dist: frozendict (<2,>=1.2)
+Requires-Dist: sentry-sdk (<1,>=0.15.1)
+Requires-Dist: filetype (<2,>=1.0.7)
+Requires-Dist: unidecode (<0.05,>=0.04.14)
+Requires-Dist: blinker (<2,>=1.4)
+Requires-Dist: futures (<4,>=3.3) ; python_version < '3'
+Requires-Dist: monotonic (<2,>=1.5) ; python_version < '3'
+Requires-Dist: scandir (<2,>=1.10) ; python_version < '3'
+Requires-Dist: chainmap (<2,>=1.0.3) ; python_version < '3'
+Requires-Dist: typing (<4,>=3.7.4.1) ; python_version < '3'
+Requires-Dist: appdirs (>=1.4.4) ; sys_platform == 'darwin'
+Provides-Extra: develop
+Requires-Dist: mock (<4,>=3.0.5) ; extra == 'develop'
+Requires-Dist: pytest (==4.6.10) ; extra == 'develop'
+Requires-Dist: pytest-doctest-custom (<2,>=1.0.0) ; extra == 'develop'
+Requires-Dist: ddt ; extra == 'develop'
+Requires-Dist: flake8 ; extra == 'develop'
+Requires-Dist: pyinstrument ; extra == 'develop'
+Provides-Extra: docs
+Requires-Dist: sphinx (<4,>=3) ; extra == 'docs'
+Requires-Dist: sphinxcontrib-httpdomain ; extra == 'docs'
+Requires-Dist: sphinxcontrib-mermaid ; extra == 'docs'
+Requires-Dist: sphinx-rtd-theme ; extra == 'docs'
+Requires-Dist: readthedocs-sphinx-ext ; extra == 'docs'
+Provides-Extra: plugins
+Requires-Dist: cookiecutter (<1.8,>=1.7.2) ; extra == 'plugins'
+
+#  OctoPrint
+
+
+![GitHub release](https://img.shields.io/github/v/release/OctoPrint/OctoPrint?logo=github&logoColor=white)
+![PyPI](https://img.shields.io/pypi/v/OctoPrint?logo=python&logoColor=white)
+![Build status](https://img.shields.io/github/workflow/status/OctoPrint/OctoPrint/Build)
+[![Community Forum](https://img.shields.io/discourse/users?logo=discourse&logoColor=white&server=https%3A%2F%2Fcommunity.octoprint.org)](https://community.octoprint.org)
+[![Discord](https://img.shields.io/discord/704958479194128507?label=discord&logo=discord&logoColor=white)](https://discord.octoprint.org)
+[![Twitter Follow](https://img.shields.io/twitter/follow/OctoPrint3d.svg?style=social&label=Follow)](https://twitter.com/OctoPrint3d)
+
+
+OctoPrint provides a snappy web interface for controlling consumer 3D printers. It is Free Software
+and released under the [GNU Affero General Public License V3](http://www.gnu.org/licenses/agpl.html).
+
+Its website can be found at [octoprint.org](https://octoprint.org/?utm_source=github&utm_medium=readme).
+
+The community forum is available at [community.octoprint.org](https://community.octoprint.org/?utm_source=github&utm_medium=readme). It also serves as central knowledge base.
+
+An invite to the Discord server can be found at [discord.octoprint.org](https://discord.octoprint.org).
+
+The FAQ can be accessed by following [faq.octoprint.org](https://faq.octoprint.org/?utm_source=github&utm_medium=readme).
+
+The documentation is located at [docs.octoprint.org](http://docs.octoprint.org).
+
+The official plugin repository can be reached at [plugins.octoprint.org](https://plugins.octoprint.org/?utm_source=github&utm_medium=readme).
+
+**OctoPrint's development wouldn't be possible without the [financial support by its community](https://octoprint.org/support-octoprint/?utm_source=github&utm_medium=readme).
+If you enjoy OctoPrint, please consider becoming a regular supporter!**
+
+![Screenshot](http://i.imgur.com/dF3noFp.png)
+
+You are currently looking at the source code repository of OctoPrint. If you already installed it
+(e.g. by using the Raspberry Pi targeted distribution [OctoPi](https://github.com/guysoft/OctoPi)) and only
+want to find out how to use it, [the documentation](http://docs.octoprint.org/) might be of more interest for you. You might also want to subscribe to join
+[the community forum at community.octoprint.org](https://community.octoprint.org) where there are other active users who might be
+able to help you with any questions you might have.
+
+## Contributing
+
+Contributions of all kinds are welcome, not only in the form of code but also with regards to the
+[official documentation](http://docs.octoprint.org/), debugging help
+in the [bug tracker](https://github.com/OctoPrint/OctoPrint/issues), support of other users on
+[the community forum at community.octoprint.org](https://community.octoprint.org) or
+[the official discord at discord.octoprint.org](https://discord.octoprint.org)
+and also [financially](https://octoprint.org/support-octoprint/?utm_source=github&utm_medium=readme).
+
+If you think something is bad about OctoPrint or its documentation the way it is, please help
+in any way to make it better instead of just complaining about it -- this is an Open Source Project
+after all :)
+
+For information about how to go about submitting bug reports or pull requests, please see the project's
+[Contribution Guidelines](https://github.com/OctoPrint/OctoPrint/blob/master/CONTRIBUTING.md).
+
+## Installation
+
+Installation instructions for installing from source for different operating
+systems can be found [on the forum](https://community.octoprint.org/tags/c/support/guides/15/setup).
+
+If you want to run OctoPrint on a Raspberry Pi, you might want to take a look at [OctoPi](https://github.com/guysoft/OctoPi)
+which is a custom SD card image that includes OctoPrint plus dependencies.
+
+The generic steps that should basically be done regardless of operating system
+and runtime environment are the following (as *regular
+user*, please keep your hands *off* of the `sudo` command here!) - this assumes
+you already have Python 2.7, 3.6 or 3.7, pip and virtualenv and their dependencies set up on your system:
+
+1. Create a user-owned virtual environment therein: `virtualenv venv`. If you want to specify a specific python
+   to use instead of whatever version your system defaults to, you can also explicitly require that via the `--python`
+   parameter, e.g. `virtualenv --python=python3 venv`.
+2. Install OctoPrint *into that virtual environment*: `./venv/bin/pip install OctoPrint`
+
+Or alternatively, for an install from source:
+
+1. Checkout OctoPrint: `git clone https://github.com/OctoPrint/OctoPrint.git`
+2. Change into the OctoPrint folder: `cd OctoPrint`
+3. Create a user-owned virtual environment therein: `virtualenv venv`
+4. Install OctoPrint *into that virtual environment*: `./venv/bin/pip install .`
+
+You may then start the OctoPrint server via `/path/to/OctoPrint/venv/bin/octoprint`, see [Usage](#usage)
+for details.
+
+After installation, please make sure you follow the first-run wizard and set up
+access control as necessary.
+
+## Dependencies
+
+OctoPrint depends on a few python modules to do its job. Those are automatically installed when installing
+OctoPrint via `pip`.
+
+OctoPrint currently supports Python 2.7, 3.6 and 3.7.
+
+## Usage
+
+Running the pip install via
+
+    pip install OctoPrint
+
+installs the `octoprint` script in your Python installation's scripts folder
+(which, depending on whether you installed OctoPrint globally or into a virtual env, will be in your `PATH` or not). The
+following usage examples assume that the `octoprint` script is on your `PATH`.
+
+You can start the server via
+
+    octoprint serve
+
+By default it binds to all interfaces on port 5000 (so pointing your browser to `http://127.0.0.1:5000`
+will do the trick). If you want to change that, use the additional command line parameters `host` and `port`,
+which accept the host ip to bind to and the numeric port number respectively. If for example you want the server
+to only listen on the local interface on port 8080, the command line would be
+
+    octoprint serve --host=127.0.0.1 --port=8080
+
+Alternatively, the host and port on which to bind can be defined via the config file.
+
+If you want to run OctoPrint as a daemon (only supported on Linux), use
+
+    octoprint daemon {start|stop|restart} [--pid PIDFILE]
+
+If you do not supply a custom pidfile location via `--pid PIDFILE`, it will be created at `/tmp/octoprint.pid`.
+
+You can also specify the config file or the base directory (for basing off the `uploads`, `timelapse` and `logs` folders),
+e.g.:
+
+    octoprint serve --config /path/to/another/config.yaml --basedir /path/to/my/basedir
+
+To start OctoPrint in safe mode - which disables all third party plugins that do not come bundled with OctoPrint - use
+the ``--safe`` flag:
+
+    octoprint serve --safe
+
+See `octoprint --help` for more information on the available command line parameters.
+
+OctoPrint also ships with a `run` script in its source directory. You can invoke it to start the server. It
+takes the same command line arguments as the `octoprint` script.
+
+## Configuration
+
+If not specified via the command line, the config file `config.yaml` for OctoPrint is expected in the settings folder,
+which is located at `~/.octoprint` on Linux, at `%APPDATA%/OctoPrint` on Windows and
+at `~/Library/Application Support/OctoPrint` on MacOS.
+
+A comprehensive overview of all available configuration settings can be found
+[in the docs](http://docs.octoprint.org/en/master/configuration/config_yaml.html).
+Please note that the most commonly used configuration settings can also easily
+be edited from OctoPrint's settings dialog.
+
+## Special Thanks
+
+Cross-browser testing services are kindly provided by [BrowserStack](https://www.browserstack.com/).
+
+Profiling is done with the help of [PyVmMonitor](https://www.pyvmmonitor.com).
+
+Error tracking is powered and sponsored by [Sentry](https://sentry.io).
+
+

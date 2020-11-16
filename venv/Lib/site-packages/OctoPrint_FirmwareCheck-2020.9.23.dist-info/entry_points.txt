@@ -1,0 +1,3 @@
+[octoprint.plugin]
+firmware_check = octoprint_firmware_check
+

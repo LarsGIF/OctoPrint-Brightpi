@@ -1,0 +1,3 @@
+[octoprint.plugin]
+file_check = octoprint_file_check
+

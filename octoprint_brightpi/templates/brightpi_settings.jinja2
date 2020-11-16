@@ -1,0 +1,15 @@
+<form class="form-horizontal">
+    <div class="control-group">
+        <h1>Bright Pi Camera Light Control</h1>
+        <p>
+            The unit has 4 visible light LEDs and 8 IR light LEDs.<br>
+            The IR LEDs are disabled by default but can be enabled by below checkbox.
+        </p>
+        <div>
+            <label class="checkbox">
+                <input type="checkbox" data-bind="checked: settings.plugins.brightpi.enableIR">
+                {{ _('Use IR LEDs') }}
+            </label>
+        </div>
+    </div>
+</form>

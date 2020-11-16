@@ -5,52 +5,56 @@
  * License: AGPLv3
  */
 
-//from brightpi import *
-
 $(function() {
     function BrightpiViewModel(parameters) {
         var self = this;
 
-        // assign the injected parameters, e.g.:
-        // self.loginStateViewModel = parameters[0];
-        // self.settingsViewModel = parameters[1];
+        // Assign the injected parameters.
+        // See OCTOPRINT_VIEWMODELS.push({ dependencies: [...] }) below.
+        self.loginState = parameters[0];
+        self.settings = parameters[1];
 
-        self.dialog = undefined;
-        // brightPi = BrightPi();
-
-        self.onStartup = function() {
-            self.dialog = $("#plugin_brightpi_generated");
-            // brightPi.reset()
-        };
-
-        self.showDialog = function(title, data) {
-            if (self.dialog === undefined) return;
-            // TODO: Implement your plugin's view model here.
-		    self._logger.info("BrightPi dialog show")
-        };
+        // This will hold the URL currently displayed by the iframe
+        self.currentUrl = ko.observable();
 
         self.lightOff = function() {
-            // TODO: Implement lightOff here.
-            self._logger.info("BrightPi Light Off pressed!")
-            // brightPi.set_led_on_off((1 ,3), OFF)
+            // Send a whitLight off command to the server
+            OctoPrint.simpleApiCommand("brightpi", "whitLight", {"on": false});
         };
 
         self.lightOn = function() {
-            // TODO: Implement lightOn here.
-            self._logger.info("BrightPi Light On pressed!")
-            // brightPi.set_led_on_off((1 ,3), ON)
-        }
-    }
+            // Send a whitLight on command to the server
+            OctoPrint.simpleApiCommand("brightpi", "whitLight", {"on": true});
+        };
+
+        self.irLightOff = function() {
+            // Send a brightpi off command to the server
+            OctoPrint.simpleApiCommand("brightpi", "irLight", {"on": false});
+        };
+
+        self.irLightOn = function() {
+            // Send a brightpi on command to the server
+             OctoPrint.simpleApiCommand("brightpi", "irLight", {"on": true});
+        };
+
+        // TODO: Remove this override. Not required by Brightpi. Only for testing.
+        /* This will get called before the BrightpiViewModel gets bound to the DOM, but after its
+         * dependencies have already been initialized. It is especially guaranteed that this method
+         * gets called _after_ the settings have been retrieved from the OctoPrint backend and thus
+         * the SettingsViewModel been properly populated.
+        self.onBeforeBinding = function() {
+            self.currentUrl("https://en.wikipedia.org/wiki/Hello_world");
+        }*/
+    };
 
     /* view model class, parameters for constructor, container to bind to
-     * Please see http://docs.octoprint.org/en/master/plugins/viewmodels.html#registering-custom-viewmodels for more details
-     * and a full list of the available options.
-     */
+     * Please see http://docs.octoprint.org/en/master/plugins/viewmodels.html#registering-custom-viewmodels
+     * for more details and a full list of the available options. */
     OCTOPRINT_VIEWMODELS.push({
         construct: BrightpiViewModel,
-        // ViewModels your plugin depends on, e.g. loginStateViewModel, settingsViewModel, ...
-        dependencies: [ /* "loginStateViewModel", "settingsViewModel" */ ],
+        // ViewModels your plugin depends on,
+        dependencies: [ "loginStateViewModel", "settingsViewModel" ],
         // Elements to bind to, e.g. #settings_plugin_brightpi, #tab_plugin_brightpi, ...
-        elements: [ /* ... */ ]
+        elements: [ "#tab_plugin_brightpi" ]
     });
 });

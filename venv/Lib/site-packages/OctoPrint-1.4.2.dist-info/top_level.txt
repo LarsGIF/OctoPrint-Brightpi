@@ -1,0 +1,3 @@
+octoprint
+octoprint_client
+octoprint_setuptools
