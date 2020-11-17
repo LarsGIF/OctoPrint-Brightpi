@@ -1,6 +1,7 @@
 # OctoPrint-Brightpi
 
-This is a plugin to OctoPrint controlling a BrightPi camera light assembly from PiSupply.
+This is a plugin to OctoPrint controlling a Bright-Pi camera light assembly from PiSupply.
+https://github.com/PiSupply/Bright-Pi
 
 ## Setup
 
