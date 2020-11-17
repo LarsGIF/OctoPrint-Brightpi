@@ -36,15 +36,6 @@ $(function() {
             // Send a brightpi on command to the server
              OctoPrint.simpleApiCommand("brightpi", "irLight", {"on": true});
         };
-
-        // TODO: Remove this override. Not required by Brightpi. Only for testing.
-        /* This will get called before the BrightpiViewModel gets bound to the DOM, but after its
-         * dependencies have already been initialized. It is especially guaranteed that this method
-         * gets called _after_ the settings have been retrieved from the OctoPrint backend and thus
-         * the SettingsViewModel been properly populated.
-        self.onBeforeBinding = function() {
-            self.currentUrl("https://en.wikipedia.org/wiki/Hello_world");
-        }*/
     };
 
     /* view model class, parameters for constructor, container to bind to
