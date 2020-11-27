@@ -86,7 +86,7 @@ class BrightpiPlugin(
             )
         )
 
-__plugin_name__ = "BrightPi"
+__plugin_name__ = "Bright Pi"
 __plugin_pythoncompat__ = ">=2.7,<4"  # python 2 and 3
 
 ##~~ TODO: Activate this to check that the smbus2 package can be loaded
