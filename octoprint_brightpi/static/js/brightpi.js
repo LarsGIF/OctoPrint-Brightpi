@@ -36,7 +36,7 @@ $(function() {
             // Send a brightpi on command to the server
              OctoPrint.simpleApiCommand("brightpi", "irLight", {"on": true});
         };
-    };
+    }
 
     /* view model class, parameters for constructor, container to bind to
      * Please see http://docs.octoprint.org/en/master/plugins/viewmodels.html#registering-custom-viewmodels

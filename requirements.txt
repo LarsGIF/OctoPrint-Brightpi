@@ -8,7 +8,7 @@
 
 .
 
-setuptools~=50.3.2
-OctoPrint~=1.4.2
+setuptools~>=50.3.2
+OctoPrint~>=1.5.2
 
 smbus2~=0.3.0
