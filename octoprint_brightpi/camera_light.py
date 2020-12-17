@@ -1,5 +1,5 @@
 # coding=utf-8
-from brightpilib import *
+from .brightpilib import *
 
 class CameraLight(object):
     """
