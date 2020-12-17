@@ -1,7 +1,7 @@
 # coding=utf-8
 from __future__ import absolute_import
 import octoprint.plugin
-from camera_light import CameraLight
+from .camera_light import *
 
 camera = CameraLight()
 

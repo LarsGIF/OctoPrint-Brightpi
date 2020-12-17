@@ -1,3 +1,4 @@
+# coding=utf-8
 from brightpilib import *
 
 class CameraLight(object):
